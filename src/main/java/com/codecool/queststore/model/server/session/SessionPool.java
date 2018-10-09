@@ -8,7 +8,7 @@ import java.util.*;
 public class SessionPool {
 
     private static final String FILENAME = "src/main/resources/Sessions.pool";
-    private static Set<Session> sessions = new HashSet<>();
+    public static Set<Session> sessions = new HashSet<>();
 
     public SessionPool() {
         if(sessions.isEmpty())
