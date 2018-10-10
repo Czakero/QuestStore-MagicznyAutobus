@@ -34,7 +34,13 @@ public abstract class AbstractHttphandler {
         for(String pair : pairs){
             String[] keyValue = pair.split("=");
             // We have to decode the value because it's urlencoded. see: https://en.wikipedia.org/wiki/POST_(HTTP)#Use_for_submitting_web_forms
-            String value = URLDecoder.decode(keyValue[1], "UTF-8");
+            String value;
+            try {
+                if (keyValue.length < 2) keyValue[1] = "puci";
+                value = URLDecoder.decode(keyValue[1], "UTF-8");
+            } catch (IndexOutOfBoundsException ex) {
+                value = URLDecoder.decode("puci", "UTF-8");
+            }
             map.put(keyValue[0], value);
         }
         return map;

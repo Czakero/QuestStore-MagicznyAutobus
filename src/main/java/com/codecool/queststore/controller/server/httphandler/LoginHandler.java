@@ -38,7 +38,7 @@ public class LoginHandler extends AbstractHttphandler implements HttpHandler {
         }
     }
 
-    private void handlePost(HttpExchange httpExchange) throws IOException {
+    public void handlePost(HttpExchange httpExchange) throws IOException {
         Map inputs = parseFormData(httpExchange);
         // check DB for user and password
         LoginService service = new LoginService((String) inputs.get("login"), (String) inputs.get("password"));

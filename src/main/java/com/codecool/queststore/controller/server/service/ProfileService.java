@@ -63,7 +63,9 @@ public class ProfileService {
         } else if (submit.equals("updateaddress")) {
             updateAddress(Integer.parseInt(inputs.get("id").toString()), (String) inputs.get("address"));
         } else {
-            editTitle(Integer.parseInt(submit), (String) inputs.get("name"));
+            if(submit.matches("-?(0|[1-9]\\d*)")) {
+                editTitle(Integer.parseInt(submit), (String) inputs.get("name"));
+            }
         }
     }
 

@@ -23,7 +23,7 @@ public class ProfileHandler extends AbstractHttphandler implements HttpHandler {
             e.printStackTrace();
         }
     }
-    private void handlePost(HttpExchange httpExchange) throws IOException, SQLException {
+    private void handlePost(HttpExchange httpExchange) throws IOException {
         String cookieStr = httpExchange.getRequestHeaders().getFirst("Cookie");
         HttpCookie cookie = new HttpCookie("Session-id", cookieStr);
 
